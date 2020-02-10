@@ -1,0 +1,54 @@
+<ion-header id="header" no-shadow no-border>
+    <section class="wrapper">
+        <div class="w2-18">
+            <section class="grid-wrapper grid-col-3">
+                <button ion-button class="arrow-left" (click)="goback()">
+                  <img src="../../assets/icons/arrow-left.png"/>
+                  <span>Back</span>
+                </button>
+
+                <div class="header-title flex-wrapper">
+                   <!-- <span>Activation</span> -->
+                </div>
+            </section>
+        </div>
+    </section>
+</ion-header>
+<ion-content id="content-section">
+    <div class="flex-wrapper flex-center">
+        <div class="wrapper">
+          <div class="w2-18 flex-wrapper root">
+            <div class="page-wrapper">
+                <div class="flex-wrapper flex-column page-wrapper-inner">
+                    <div class="intro-text">
+                        <!-- <div class="img"></div> -->
+                        <h1>{{header}}</h1>
+                        <p>{{caption}} Every device has a unique ID and for each user. You can activate this device now and deactivate other logins from previous devices for security reasons.</p>
+                    
+                        <div class="intro-form move-down">
+                                <section class="input-wrapper">
+                                    <label>Email or Phone</label>
+                                    <input type="text" placeholder="Your email or phone number" [(ngModel)]="email"/>
+                                </section>
+
+                                <section class="input-wrapper">
+                                    <label>Password</label>
+                                    <input type="password" placeholder="Your password" [(ngModel)]="password"/>
+                                </section>
+        
+           
+                                <section class="button-group">
+                                   <button ion-button class="btn-full" type="submit" (click)="activate()"><span>Proceed</span></button>
+                                </section>
+                             </div>
+                    </div>
+        
+                    
+                 </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </ion-content>
+  
+  <app-infobar></app-infobar>

@@ -1,0 +1,38 @@
+<ion-content id="content-section">
+
+    <div class="flex-wrapper flex-center">
+        <div class="wrapper">
+          <div class="w2-18 flex-wrapper root">
+            <div class="page-wrapper">
+                <div class="flex-wrapper flex-column page-wrapper-inner">
+                    <div class="intro-text">
+                        <div class="img"></div>
+                        <h4 class="extra-big">{{count}}</h4>
+                        <h2 class="extra-caption">Customers and counting...</h2>
+                        <p>Start saving through your correspondent Bank, debit card or through a sales rep/agent. <b>Login</b> or <b>Create an account</b> to continue. </p>
+                        
+                        <!-- <span class="learn-more" [routerLink]="['/helpdesk']">Help ?</span> -->
+                    
+                        <div class="intro-form move-down">
+                            <section class="input-wrapper email">
+                                <input type="text" placeholder="Email Or phone number" [(ngModel)]="username"/>
+                            </section>
+       
+                            <section class="button-group">
+                               <button ion-button class="btn-full" type="submit" (click)="signin()"><span>sign in</span></button>
+                               <button ion-button class="btn-outline" [routerLink]="['/register']"><span>create an account</span></button>
+                            </section>
+                         </div>
+  
+                      </div>
+        
+                    
+                 </div>
+            </div>
+          </div>
+        </div>
+    </div>
+</ion-content>
+
+
+<app-infobar [page]="account"></app-infobar>

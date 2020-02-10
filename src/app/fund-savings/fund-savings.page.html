@@ -1,0 +1,65 @@
+<ion-header id="header" no-shadow no-border>
+    <section class="wrapper">
+        <div class="w2-18">
+            <section class="grid-wrapper grid-col-3">
+                <button ion-button class="arrow-left" (click)="goback()">
+                    <img src="../../assets/icons/arrow-left.png"/>
+                    <span>Back</span>
+                </button>
+
+                <div class="header-title flex-wrapper">
+                   <!-- <span>Saving plans</span> -->
+                </div>
+
+                <div class="profile-icon profile-icon-right" [routerLink]="['/profile']">
+                    <img [src]="account.data.profileimage"/>
+                </div>
+            </section>
+        </div>
+    </section>
+</ion-header>
+
+<ion-content id="content-section">
+
+    <div class="flex-wrapper flex-center">
+        <div class="wrapper">
+          <div class="w2-18 flex-wrapper root">
+            <div class="page-wrapper">
+                <div class="flex-wrapper flex-column page-wrapper-inner">
+                    <div class="intro-text">
+                        <h1>Fund a saving plan.</h1>
+                        <p>Please select a plan below, then enter an amount to continue.</p>
+                    </div>
+        
+                    <div class="intro-form move-up">
+
+                        <section class="input-wrapper" *ngIf="savingsPlanID == null">
+                            <label>Saving plan</label>
+                            <ion-select placeholder="Select plan to fund" [(ngModel)]="formpack.savingsPlanID">
+                                <ion-select-option value="{{plan.ID}}" *ngFor="let plan of plans">{{plan.name}}  - ({{getCode(plan.Code)}})</ion-select-option>
+                            </ion-select>
+                        </section>
+
+                        <section class="input-wrapper">
+                            <label>Amount</label>
+                            <input type="number" placeholder="Amount to Fund" [(ngModel)]="formpack.Amount"/>
+                        </section>
+
+                        <section class="input-wrapper">
+                            <label>Description</label>
+                            <input type="text" placeholder="" [(ngModel)]="formpack.Description"/>
+                        </section>
+     
+                        <section class="button-group">
+                           <button ion-button type="submit" class="btn-full" (click)="fund()"><span>Fund</span></button>
+                        </section>
+                  </div>
+                 </div>
+            </div>
+          </div>
+        </div>
+    </div>
+
+</ion-content>
+
+<app-footer></app-footer>

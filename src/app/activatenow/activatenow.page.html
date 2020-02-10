@@ -1,0 +1,48 @@
+<ion-header id="header" no-shadow no-border>
+    <section class="wrapper">
+        <div class="w2-18">
+            <section class="grid-wrapper grid-col-3">
+                <button ion-button class="arrow-left" (click)="goback()">
+                  <!-- <img src="../../assets/icons/arrow-left.png"/>
+                  <span>Back</span> -->
+                </button>
+
+                <div class="header-title flex-wrapper">
+                   <!-- <span>Activate</span> -->
+                </div>
+            </section>
+        </div>
+    </section>
+</ion-header>
+<ion-content id="content-section">
+    <div class="flex-wrapper flex-center">
+        <div class="wrapper">
+          <div class="w2-18 flex-wrapper root">
+            <div class="page-wrapper">
+                <div class="flex-wrapper flex-column page-wrapper-inner activation-wrapper">
+                    <div class="intro-text intro-text2">
+                        <p>
+                          Activation code has been sent to <b>{{email}}</b> and <b>{{phone}}</b>, code expires in 5 minutes. You should get it within 1 minute.
+                        </p>
+
+                        <div class="code-inputs flex-wrapper">
+                            <input maxlength="1" type="number" autofocus (keyup)="onChange($event)"/>
+                            <input maxlength="1" type="number" (keyup)="onChange($event)"/>
+                            <input maxlength="1" type="number" (keyup)="onChange($event)"/>
+                            <input maxlength="1" type="number" (keyup)="onChange($event)"/>
+                        </div>
+
+                        <span class="learn-more" (click)="resend()">Didn't get code ? Resend.</span>
+
+                        <section class="button-group">
+                            <button ion-button class="btn-full" type="submit" (click)="signin()"><span>Complete</span></button>
+                         </section>
+                    </div>
+                 </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </ion-content>
+  
+  <app-infobar></app-infobar>

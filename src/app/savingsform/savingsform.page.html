@@ -1,0 +1,67 @@
+<ion-header id="header" no-shadow no-border>
+  <section class="wrapper">
+      <div class="w2-18">
+          <section class="grid-wrapper grid-col-3">
+              <button ion-button class="arrow-left" [routerLink]="['/addsavings']">
+                  <img src="../../assets/icons/arrow-left.png"/>
+                  <span>Back</span>
+              </button>
+
+              <div class="header-title flex-wrapper">
+                 <!-- <span>Add Savings</span> -->
+              </div>
+
+              <div class="profile-icon profile-icon-right" [routerLink]="['/profile']">
+                  <img [src]="account.data.profileimage"/>
+              </div>
+          </section>
+      </div>
+  </section>
+</ion-header>
+
+<ion-content id="content-section">
+  <div class="flex-wrapper flex-center">
+    <div class="wrapper">
+      <div class="w2-18 flex-wrapper root">
+        <div class="page-wrapper">
+            <div class="flex-wrapper flex-column page-wrapper-inner">
+                <div class="intro-text">
+                    <h1>{{plan.Name}}</h1>
+                    <p>{{plan.Description}}</p>
+                    <span class="learn-more" (click)="learnMore(plan)">Learn More.</span>
+
+                    <div class="intro-form move-down">
+
+                        <section class="input-wrapper">
+                          <label>Minimum Balance</label>
+                          <input readonly type="text" value="₦{{plan.MinimumBalance}}" style="border-bottom: 0px;">
+                        </section>
+
+                        <section class="input-wrapper">
+                            <label>Savings Amount</label>
+                            <input type="tel" pattern="[0-9]*" placeholder="How much do you want to save {{plan.SavingsFrequency}}?" [(ngModel)]="formpack.Amount" class="faint-input"/>
+                        </section>
+     
+                        <section class="input-wrapper">
+                         <label>Transfer To Wallet On Maturity</label>
+                         <ion-select [(ngModel)]="formpack.transfer" stacked placeholder="Your choice please" >
+                           <ion-select-option value="yes" selected="yes">Yes</ion-select-option>
+                           <ion-select-option value="no">No</ion-select-option>
+                         </ion-select>
+                        </section>
+     
+                        <section class="button-group">
+                           <button ion-button class="btn-full" type="submit" (click)="create(plan.ID)"><span>Create Plan</span></button>
+                        </section>
+                     </div>
+                </div>
+    
+                
+             </div>
+        </div>
+      </div>
+    </div>
+</div>
+</ion-content>
+
+<app-footer></app-footer>

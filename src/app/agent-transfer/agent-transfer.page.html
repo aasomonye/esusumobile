@@ -1,0 +1,72 @@
+<ion-header id="header" no-shadow no-border>
+  <section class="wrapper">
+      <div class="w2-18">
+          <section class="grid-wrapper grid-col-3">
+              <button ion-button class="arrow-left" (click)="goback()">
+                  <img src="../../assets/icons/arrow-left.png"/>
+                  <span>Back</span>
+              </button>
+
+              <div class="header-title flex-wrapper">
+                 <!-- <span>Agent</span> -->
+              </div>
+
+              <div class="profile-icon profile-icon-right" [routerLink]="['/profile']">
+                  <img [src]="account.data.profileimage"/>
+              </div>
+          </section>
+      </div>
+  </section>
+</ion-header>
+
+
+<ion-content>
+  <div class="flex-wrapper flex-center">
+    <div class="wrapper">
+      <div class="w2-18 flex-wrapper root">
+        <div class="page-wrapper">
+            <div class="flex-wrapper flex-column page-wrapper-inner">
+                <div class="intro-text">
+                    <h1>Transfer to bank</h1>
+                    <p>Please select customer bank, amount and your pin to proceed.</p>
+                
+                    <div class="intro-form move-down">
+
+                      <section class="input-wrapper" *ngIf="loaded == true">
+                            <label>Bank</label>
+                            <ion-select [(ngModel)]="BankName" stacked placeholder="Your bank please">
+                              <ion-select-option *ngFor="let bank of banks" value="{{bank.BankName}}">{{bank.BankName}}</ion-select-option>
+                            </ion-select>
+                      </section>
+
+                      <div class="input-wrapper">
+                          <label>Account Number</label>
+                          <input type="tel" pattern="[0-9]*" placeholder="Customer Account Number" [(ngModel)]="RecepientAccountNumber"/>
+                      </div>
+
+                      <div class="input-wrapper">
+                          <label>Amount</label>
+                          <input type="number" placeholder="Amount" [(ngModel)]="DepositAmount"/>
+                      </div>
+
+                      <div class="input-wrapper">
+                          <label>Account PIN</label>
+                          <input type="password" inputmode="numeric" pattern="[0-9]*" placeholder="Your Pin" [(ngModel)]="PIN"/>
+                      </div>
+
+                      <section class="button-group">
+                          <button ion-button class="btn-outline" (click)="process()"><span>process</span></button>
+                      </section>
+                    </div>
+                </div>
+    
+                
+             </div>
+        </div>
+      </div>
+    </div>
+</div>
+</ion-content>
+
+
+<app-footer></app-footer>

@@ -1,0 +1,7 @@
+{
+  "name": "esusuMobile",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

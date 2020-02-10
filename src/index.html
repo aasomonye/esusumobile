@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>EsusuMobile</title>
+
+  <base href="/" />
+
+  <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="msapplication-tap-highlight" content="no" />
+
+  <link rel="icon" type="image/png" href="assets/icon/favicon.png" />
+
+  <!-- add to homescreen for ios -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+</head>
+
+<body>
+  <!-- app loader -->
+<section class="app-loader" style="display:none">
+    <span class="loader-inner">
+       <img src="assets/icons/esusuicon.png"/>
+       <div class="circle"></div>
+    </span>
+    <span class="dismiss"> dismiss </span>
+</section>
+
+<!-- system notification -->
+<section class="notification" style="display:none">
+   <section class="notification-inner">
+       <div class="notification-type">
+         <img src="assets/icons/warning2.png" class="error-image"/>
+         <img src="assets/icons/check.png" class="success-image"/>
+         <span class="title"></span>
+       </div>
+
+       <div class="notification-text">
+         <p>
+           
+         </p>
+       </div>
+
+       <button class="button-close"><span>Okay</span></button>
+   </section>
+</section>
+  <app-root></app-root>
+</body>
+
+</html>

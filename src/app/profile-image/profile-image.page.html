@@ -1,0 +1,57 @@
+<ion-header id="header" no-shadow no-border>
+  <section class="wrapper">
+      <div class="w2-18">
+          <section class="grid-wrapper grid-col-3">
+              <button ion-button class="arrow-left" (click)="goback()">
+                  <img src="../../assets/icons/arrow-left.png"/>
+                  <span>Back</span>
+              </button>
+
+              <div class="header-title flex-wrapper">
+                 <!-- <span>Add Savings</span> -->
+              </div>
+
+              <div class="profile-icon profile-icon-right" [routerLink]="['/profile']">
+                  <img [src]="account.data.profileimage"/>
+              </div>
+          </section>
+      </div>
+  </section>
+</ion-header>
+
+<ion-content id="content-section">
+  <div class="flex-wrapper flex-center">
+    <div class="wrapper">
+      <div class="w2-18 flex-wrapper root">
+        <div class="page-wrapper">
+            <div class="flex-wrapper flex-column page-wrapper-inner">
+                <div class="intro-text">
+                    <h1>Update profile image</h1>
+                    <!-- <p>Please </p> -->
+                    
+                    <div class="intro-form kyc-form move-down flex-wrapper flex-column">
+
+                        <section class="profile-image2">
+                            <img src=""/>
+                        </section>
+
+                        <section class="input-wrapper">
+                            <label class="select-file-box" for="image"><span>Pick an Image</span></label>
+                            <input type="file" name="image" id="image" style="display:none"/>
+                        </section>
+     
+                        <section class="button-group">
+                           <button ion-button class="btn-full" (click)="continue()"><span>Update</span></button>
+                        </section>
+                     </div>
+                </div>
+    
+                
+             </div>
+        </div>
+      </div>
+    </div>
+</div>
+</ion-content>
+
+<app-footer></app-footer>

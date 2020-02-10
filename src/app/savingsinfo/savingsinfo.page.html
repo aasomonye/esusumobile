@@ -1,0 +1,138 @@
+<ion-header id="header" no-shadow no-border>
+    <section class="wrapper">
+        <div class="w2-18">
+            <section class="grid-wrapper grid-col-3">
+            <button ion-button class="arrow-left" (click)="goback()">
+                    <img src="../../assets/icons/arrow-left.png"/>
+                    <span>Back</span>
+                </button>
+
+                <div class="header-title flex-wrapper">
+                   <span>{{title}}</span>
+                </div>
+
+                <div class="profile-icon profile-icon-right" [routerLink]="['/profile']">
+                    <img [src]="account.data.profileimage"/>
+                </div>
+            </section>
+        </div>
+    </section>
+</ion-header>
+
+<ion-content id="content-section">
+    <div class="wrapper">
+      <div class="w2-18">
+          <div class="balance-wrapper flex-wrapper flex-column">
+              <div class="balance-digit">₦{{amount}}</div>
+              <div class="balance-text"> Your current balance </div>
+              <div class="flex-wrapper" style="grid-column-gap: 10px;">
+                <span class="badge active" *ngIf="plan.Status == 'Active'">{{plan.Status}}</span>
+                <span class="badge unactive" *ngIf="plan.Status == 'Closed'">{{plan.Status}}</span>
+                <span class="badge unactive" *ngIf="plan.Status == 'Active'" (click)="close()"> Cancel </span>
+              </div>
+          </div>
+      </div>
+    </div>
+
+
+    <div class="wrapper">
+      <div class="w1-end startendperiod-wrapper wrapper">
+          <div class="w2-18">
+              <div class="startendperiod grid-wrapper grid-col-2">
+
+                  <div class="intro"><span>Savings Plan</span></div>
+                  <div class="value"><span>{{title}}</span></div>
+
+                  <div class="intro"><span>Savings Code</span></div>
+                  <div class="value"> <span>{{plan.Code}}</span></div>
+    
+                  <div class="intro"><span>Start Date</span></div>
+                  <div class="value"> <span>{{plan.DateCreated}}</span></div>
+
+                  <div class="intro"><span>Due Date</span></div>
+                  <div class="value"> <span>{{plan.DueDate}}</span></div>
+
+                  <div class="intro"><span>Tenure in days</span></div>
+                  <div class="value"><span>{{plan.Duration}}</span></div>
+
+                  <div class="intro"><span>Savings Frequency</span></div>
+                  <div class="value"> <span>{{plan.SavingsFrequency}}</span></div>
+
+                  <div class="intro"><span>Standing Order</span></div>
+                  <div class="value"> <span>₦{{plan.StandingOrder}}</span></div>
+    
+                  <div class="intro"><span>Transfer to Wallet</span></div>
+                  <div class="value">
+                      <span *ngIf="plan.TransferToWalletOnMaturity == 1">Yes</span>
+                      <span *ngIf="plan.TransferToWalletOnMaturity == 0">No</span>
+                  </div>
+                  <div class="intro"><span>Interest Earned</span></div>
+                  <div class="value"> <span>{{interest | currency:'₦'}} (₦{{plan.AccuredInterest}})</span></div>
+              </div>
+          </div>
+      </div>
+    </div>
+
+    <!-- shortcuts -->
+    <div class="app-shortcuts">
+        <div class="wrapper">
+            <div class="w2-18 relative">
+                <!-- shortcuts -->
+                <div class="shortcuts-header grid-wrapper grid-col-4">
+                    <div class="shortcuts-icon" [routerLink]="['/addsavings']">
+                        <img src="../../assets/icons/briefcase.png" />
+                        <span>Add a plan</span>
+                    </div>
+    
+                    <div class="shortcuts-icon" (click)="quicksave()">
+                        <img src="../../assets/icons/withdrawal.png" />
+                        <span>Quick Save</span>
+                    </div>
+    
+                    <div class="shortcuts-icon" (click)="autosave()">
+                        <img src="../../assets/icons/briefcase.png" />
+                        <span>Auto Save</span>
+                    </div>
+    
+                    <div class="shortcuts-icon" (click)="viewReport()">
+                        <img src="../../assets/icons/report.png" />
+                        <span>Report</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="wrapper fund-transactions" style="margin-top: 20px;">
+        <div class="w2-18">
+            <!-- <div class="savings-plan-top">
+                <span></span>
+            </div> -->
+
+            <div class="transaction-list">
+                <div class="transaction-list-wrapper">
+                    <div class="transaction-list-header">
+                        {{title}} Transactions.
+                    </div>
+
+                    <div class="transaction-list-body grid-wrapper grid-col-12" *ngFor="let report of reports" (click)="viewall(report)">
+                            <div class="transaction-list-info w1-10 grid-wrapper grid-col-1">
+                                <span class="transaction-list-info-title">
+                                    {{report.Narration}}
+                                </span>
+                                <span class="transaction-list-info-footer flex-wrapper">
+                                    <span>{{report.PostingDate}}</span>
+                                </span>
+                            </div>
+                            <div class="transaction-list-amount w10-13">
+                                <span class="good" *ngIf="report.RecordType == 'CR'">+₦{{report.Amount}}</span>
+                                <span class="bad" *ngIf="report.RecordType == 'DR'">-₦{{report.Amount}}</span>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ion-content>
+
+<app-footer></app-footer>

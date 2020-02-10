@@ -1,0 +1,102 @@
+<ion-header id="header" no-shadow no-border>
+    <section class="wrapper">
+        <div class="w2-18">
+            <section class="grid-wrapper grid-col-3">
+                <button ion-button class="arrow-left" (click)="goback()">
+                    <img src="../../assets/icons/arrow-left.png"/>
+                    <span>{{text}}</span>
+                </button>
+
+                <div class="header-title flex-wrapper">
+                   <!-- <span>Verification</span> -->
+                </div>
+
+                <div class="profile-icon profile-icon-right" [routerLink]="['/profile']">
+                    <img [src]="service.data.profileimage"/>
+                </div>
+            </section>
+        </div>
+    </section>
+</ion-header>
+
+<ion-content id="content-section">
+
+    <div class="flex-wrapper flex-center">
+        <div class="wrapper">
+          <div class="w2-18 flex-wrapper root">
+            <div class="page-wrapper">
+                <div class="flex-wrapper flex-column page-wrapper-inner">
+                    <div class="intro-text">
+                        <h1>Customer Verification</h1>
+                        <p>{{incomplete}}</p>
+                    
+                        <div class="intro-form grid-wrapper grid-col-1 move-down">
+                          <!-- plans list -->
+                          <div class="stacked-lists grid-wrapper grid-col-1">
+                             <div class="stacked-list flex-wrapper" [routerLink]="['/kycform']" *ngIf="kycVerified == 0">
+                               <span class="icon">
+                                 <img src="../../assets/icons/verify.png">
+                               </span>
+                               <span class="text">KYC Verification</span>
+                             </div>
+
+                             <div class="stacked-list flex-wrapper" (click)="completed('KYC Verified Successfully')" *ngIf="kycVerified == 1">
+                              <span class="icon">
+                                <img src="../../assets/icons/checked.png">
+                              </span>
+                              <span class="text">KYC Verification</span>
+                            </div>
+   
+                             <div class="stacked-list flex-wrapper" [routerLink]="['/phoneform']" *ngIf="phoneVerified == 0">
+                                 <span class="icon">
+                                   <img src="../../assets/icons/verify.png">
+                                 </span>
+                                 <span class="text">Activate Phone</span>
+                             </div>
+
+                             <div class="stacked-list flex-wrapper" (click)="completed('Phone number verified Successfully')" *ngIf="phoneVerified == 1">
+                                <span class="icon">
+                                  <img src="../../assets/icons/checked.png">
+                                </span>
+                                <span class="text">Activate Phone</span>
+                            </div>
+   
+                             <div class="stacked-list flex-wrapper" [routerLink]="['/bankform']" *ngIf="bankVerified == 0">
+                                 <span class="icon">
+                                   <img src="../../assets/icons/verify.png">
+                                 </span>
+                                 <span class="text">Bank Account</span>
+                             </div>
+
+                             <div class="stacked-list flex-wrapper" (click)="completed('Bank account verified Successfully')" *ngIf="bankVerified == 1">
+                                <span class="icon">
+                                  <img src="../../assets/icons/checked.png">
+                                </span>
+                                <span class="text">Bank Account</span>
+                            </div>
+   
+                             <div class="stacked-list flex-wrapper" [routerLink]="['/deposit']" *ngIf="fundVerified == 0">
+                                 <span class="icon">
+                                   <img src="../../assets/icons/verify.png">
+                                 </span>
+                                 <span class="text">Fund Account</span>
+                             </div>
+
+                             <div class="stacked-list flex-wrapper" (click)="completed('Wallet account funded Successfully')" *ngIf="fundVerified == 1">
+                                <span class="icon">
+                                  <img src="../../assets/icons/checked.png">
+                                </span>
+                                <span class="text">Fund Account</span>
+                            </div>
+                         </div>
+                       </div>
+                    </div>
+        
+                 </div>
+            </div>
+          </div>
+        </div>
+    </div>
+</ion-content>
+
+<app-footer></app-footer>

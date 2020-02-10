@@ -1,0 +1,76 @@
+<ion-header id="header" no-shadow no-border>
+    <section class="wrapper">
+        <div class="w2-18">
+            <section class="grid-wrapper grid-col-3">
+                <button ion-button class="arrow-left" (click)="goback()">
+                    <img src="../../assets/icons/arrow-left.png"/>
+                    <span>Back</span>
+                </button>
+
+                <div class="header-title flex-wrapper">
+                  <span>{{pageTitle}}</span>
+                </div>
+
+                <div class="profile-icon profile-icon-right" [routerLink]="['/profile']">
+                    <img [src]="account.data.profileimage"/>
+                </div>
+            </section>
+        </div>
+    </section>
+</ion-header>
+
+<ion-content id="content-section">
+  <div class="wrapper">
+      <div class="w2-18 wrapper filter-wrapper">
+          <div class="w1-16">
+              <ion-select [(ngModel)]="formpack.filter" stacked placeholder="Filter Result">
+                    <ion-select-option value="20">20</ion-select-option>
+                    <ion-select-option value="50">50</ion-select-option>
+                    <ion-select-option value="70">70</ion-select-option>
+                    <ion-select-option value="90">90</ion-select-option>
+                    <ion-select-option value="100">100</ion-select-option>
+                    <ion-select-option value="200">200</ion-select-option>
+              </ion-select>
+          </div>
+          <div class="w16-end theme-btn" (click)="filter()">
+            <img src="../../assets/images/filter-results-button.png"/>
+          </div>
+      </div>
+  </div>
+
+  <!-- recent transactions -->
+  <div class="wrapper">
+      <div class="w2-18">
+
+          <div class="transaction-list">
+              <div class="transaction-list-wrapper">
+                  <div class="transaction-list-header">
+                     {{pageTitle}} Report.
+                  </div>
+              </div>
+          </div>
+
+          <div class="transaction-list" *ngIf="hasNarration == true">
+              <div class="transaction-list-wrapper">
+      
+                  <div class="transaction-list-body grid-wrapper grid-col-12" *ngFor="let report of reports" (click)="viewall(report)">
+                      <div class="transaction-list-info w1-10 grid-wrapper grid-col-1">
+                          <span class="transaction-list-info-title">
+                              {{report.Narration}}
+                          </span>
+                          <span class="transaction-list-info-footer flex-wrapper">
+                              <span>{{pageTitle}}</span>
+                          </span>
+                      </div>
+                      <div class="transaction-list-amount w10-13">
+                          <span class="good" *ngIf="report.RecordType == 'CR'">+₦{{report.Amount}}</span>
+                          <span class="bad" *ngIf="report.RecordType == 'DR'">-₦{{report.Amount}}</span>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</ion-content>
+
+<app-footer></app-footer>

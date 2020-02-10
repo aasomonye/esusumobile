@@ -1,0 +1,98 @@
+{{page}}
+<ion-footer id="footer">
+    <section class="wrapper">
+        <div class="w2-18">
+            <section class="grid-wrapper grid-col-4">
+                <div class=""></div>
+                <div class=""></div>
+                <div class=""></div>
+                <div class="">
+                  <div class="pan-wrapper">
+                      <span class="pan-wrapper-inner2">
+                          <span class="pan-close flex-wrapper flex-column">
+                              <span class="close-button flex-wrapper" ion-button (click)="showMenu()">
+                                <img src="../../assets/icons/menu-4.png"/>
+                              </span>
+                              <span class="close-text">Menu</span>
+                          </span>
+                        </span>
+                  </div>
+                </div>
+            </section>
+        </div>
+    </section>
+</ion-footer>
+
+<!-- menu pan -->
+<section class="menu-pan">
+  <ion-content id="ioncontent">
+    <div class="wrapper">
+      <div class="w2-18 grid-wrapper grid-col-2">
+         <div class="menu-pan-header grid-wrapper grid-col-2 w1-3">
+            <span class="pan-title">Options you may like.</span>
+            <span class="pan-wrapper">
+              <span class="pan-wrapper-inner">
+                <span class="pan-close flex-wrapper flex-column">
+                    <span class="close-button flex-wrapper" ion-button (click)="closeMenu()">
+                      <img src="../../assets/icons/close.png"/>
+                    </span>
+                    <span class="close-text">close</span>
+                </span>
+              </span>
+            </span>
+         </div>
+
+         <div class="menu-pan-body grid-wrapper grid-col-2 w1-3">
+            <div class="menu-list">
+              <span class="flex-wrapper flex-column flex-center" (click)="goto('/home')">
+                 <img src="../../assets/icons/investment2.png"/>
+                 <span class="menu-list-text">Quick Save</span>
+              </span>
+            </div>
+
+            <div class="menu-list">
+                <span class="flex-wrapper flex-column flex-center" (click)="goto('/register')">
+                   <img src="../../assets/icons/users-1.png"/>
+                   <span class="menu-list-text">Register</span>
+                </span>
+            </div>
+
+            <div class="menu-list">
+                <span class="flex-wrapper flex-column flex-center" (click)="goto('/resetpassword')">
+                   <img src="../../assets/icons/fingerprint.png"/>
+                   <span class="menu-list-text">Reset Password</span>
+                </span>
+            </div>
+
+            <div class="menu-list">
+                <span class="flex-wrapper flex-column flex-center" (click)="goto('/helpdesk')">
+                   <img src="../../assets/icons/spotlight.png"/>
+                   <span class="menu-list-text">Help desk</span>
+                </span>
+            </div>
+
+            <div class="menu-list">
+                <span class="flex-wrapper flex-column flex-center" (click)="goto('/activatedevice')">
+                   <img src="../../assets/icons/unlocked-1.png"/>
+                   <span class="menu-list-text">Activate Device</span>
+                </span>
+            </div>
+
+            <div class="menu-list">
+                <span class="flex-wrapper flex-column flex-center" (click)="goto('/aboutus')">
+                   <img src="../../assets/icons/like-2.png"/>
+                   <span class="menu-list-text">About us</span>
+                </span>
+            </div>
+         </div>
+
+         <div class="menu-pan-footer w1-3 flex-wrapper">
+            <div class="menu-pan-center" (click)="goto('/account')">
+              <span>Goback home</span>
+              <img src="../../assets/icons/down-arrow-blue.png">
+            </div>
+         </div>
+      </div>
+    </div>
+  </ion-content>
+</section>

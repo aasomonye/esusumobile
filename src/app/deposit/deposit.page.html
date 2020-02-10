@@ -1,0 +1,61 @@
+<ion-header id="header" no-shadow no-border>
+    <section class="wrapper">
+        <div class="w2-18">
+            <section class="grid-wrapper grid-col-3">
+                <button ion-button class="arrow-left" (click)="goback()">
+                    <img src="../../assets/icons/left-arrow-1.png"/>
+                    <span>{{page}}</span>
+                </button>
+
+                <div class="header-title flex-wrapper">
+                   <!-- <span>Deposit</span> -->
+                </div>
+
+                <div class="profile-icon profile-icon-right" [routerLink]="['/profile']">
+                    <img [src]="account.data.profileimage"/>
+                </div>
+            </section>
+        </div>
+    </section>
+</ion-header>
+
+<ion-content id="content-section">
+
+    <div class="flex-wrapper flex-center">
+        <div class="wrapper">
+          <div class="w2-18 flex-wrapper root">
+            <div class="page-wrapper">
+                <div class="flex-wrapper flex-column page-wrapper-inner">
+                    <div class="intro-text">
+                        <h1> Fund your wallet account.</h1>
+                        <p>Your wallet can be funded via voucher and via card. </p>
+
+                        <div class="intro-form grid-wrapper grid-col-1 move-down">
+                                <div class="stacked-lists grid-wrapper grid-col-1">
+                                    <div class="stacked-list flex-wrapper" (click)="goto('/deposit-voucher')">
+                                      <span class="icon">
+                                        <img src="../../assets/icons/wallet.png">
+                                      </span>
+                                      <span class="text">Via Voucher</span>
+                                    </div>
+          
+                                    <div class="stacked-list flex-wrapper" (click)="goto('/deposit-card')">
+                                        <span class="icon">
+                                          <img src="../../assets/icons/wallet.png">
+                                        </span>
+                                        <span class="text">Via Card</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                    </div>
+        
+                    
+                 </div>
+            </div>
+          </div>
+        </div>
+    </div>
+</ion-content>
+
+<app-footer></app-footer>

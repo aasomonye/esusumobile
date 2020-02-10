@@ -1,0 +1,62 @@
+<ion-header id="header" no-shadow no-border>
+  <section class="wrapper">
+      <div class="w2-18">
+          <section class="grid-wrapper grid-col-3">
+              <button ion-button class="arrow-left" [routerLink]="['/verification']">
+                  <img src="../../assets/icons/arrow-left.png"/>
+                  <span>Back</span>
+              </button>
+
+              <div class="header-title flex-wrapper">
+                 <!-- <span>Add Savings</span> -->
+              </div>
+
+              <div class="profile-icon profile-icon-right" [routerLink]="['/profile']">
+                  <img [src]="account.data.profileimage"/>
+              </div>
+          </section>
+      </div>
+  </section>
+</ion-header>
+
+<ion-content id="content-section">
+  <div class="flex-wrapper flex-center">
+    <div class="wrapper">
+      <div class="w2-18 flex-wrapper root">
+        <div class="page-wrapper">
+            <div class="flex-wrapper flex-column page-wrapper-inner">
+                <div class="intro-text">
+                    <h1>KYC Verification</h1>
+                    <p>Please attach a valid Passport, Utility Bill and a mean of identification. eg (National ID card, Voters card etc.)</p>
+                    
+                    <div class="intro-form kyc-form move-down">
+                        <section class="input-wrapper">
+                            <label class="select-file-box" for="passport"><span>Valid Passport</span></label>
+                            <input type="file" name="passport" id="passport" style="display:none"/>
+                        </section>
+     
+                        <section class="input-wrapper">
+                          <label class="select-file-box" for="utilitybill"><span>Utility Bill</span></label>
+                          <input type="file" name="utilitybill" id="utilitybill" style="display:none"/>
+                       </section>
+
+                       <section class="input-wrapper">
+                        <label class="select-file-box" for="identification"><span>Mean of Identification</span></label>
+                        <input type="file" name="identification" id="identification" style="display:none"/>
+                       </section>
+     
+                        <section class="button-group">
+                           <button ion-button type="submit" class="btn-full" (click)="continue()"><span>Process</span></button>
+                        </section>
+                     </div>
+                </div>
+    
+                
+             </div>
+        </div>
+      </div>
+    </div>
+</div>
+</ion-content>
+
+<app-footer></app-footer>

@@ -1,0 +1,78 @@
+<ion-header id="header" no-shadow no-border>
+    <section class="wrapper">
+        <div class="w2-18">
+            <section class="grid-wrapper grid-col-3">
+                <button ion-button class="arrow-left" (click)="goback()">
+                    <img src="../../assets/icons/arrow-left.png"/>
+                    <span>Back</span>
+                </button>
+  
+                <div class="header-title flex-wrapper">
+                </div>
+  
+                <div class="profile-icon profile-icon-right" [routerLink]="['/profile']">
+                    <img [src]="account.data.profileimage"/>
+                </div>
+            </section>
+        </div>
+    </section>
+  </ion-header>
+  
+  <ion-content id="content-section">
+      <div class="wrapper">
+          <div class="w2-18">
+              <div class="savings-plan-top2">
+                  <!-- <span>More Information</span> -->
+              </div>
+          </div>
+      </div>
+    
+      <div class="wrapper">
+          <div class="w2-18">
+            <div class="info-table-list">
+              
+              <section class="info-table">
+                <span class="info-table-title">{{report.SerialNumber}}</span>
+                <span class="info-table-caption">Serial Number</span>
+              </section>
+  
+              <section class="info-table">
+                <span class="info-table-title" (click)="copyCode(report.VoucherCode, $event)">{{report.VoucherCode}}</span>
+                <span class="info-table-caption">Voucher Code</span>
+              </section>
+              
+              <section class="info-table">
+                <span class="info-table-title">{{report.DateCreated}}</span>
+                <span class="info-table-caption">Date Created</span>
+              </section>
+
+              <section class="info-table" *ngIf="report.Status == 'Used'">
+                  <span class="info-table-title">{{report.DateUsed}}</span>
+                  <span class="info-table-caption">Date Used</span>
+              </section>
+
+              <section class="info-table" *ngIf="report.Status == 'Used'">
+                  <span class="info-table-title">{{report.Beneficiary}}</span>
+                  <span class="info-table-caption">Beneficiary</span>
+              </section>
+
+              <section class="info-table" *ngIf="report.Status == 'Used'">
+                  <span class="info-table-title">{{report.BeneficiaryAccount}}</span>
+                  <span class="info-table-caption">Beneficiary Account</span>
+              </section>
+              
+              <section class="info-table">
+                <span class="info-table-title">₦{{report.Amount}}</span>
+                <span class="info-table-caption">Amount</span>
+              </section>
+
+              <input id="voucher" value="{{report.VoucherCode}}" [(ngModel)]="code" style="opacity: 0;">
+  
+            </div>
+          </div>
+      </div>
+  
+    
+    </ion-content>
+  
+  <app-footer></app-footer>

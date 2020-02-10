@@ -1,0 +1,53 @@
+<ion-header id="header" no-shadow no-border>
+    <section class="wrapper">
+        <div class="w2-18">
+            <section class="grid-wrapper grid-col-3">
+                <button ion-button class="arrow-left" (click)="goback()">
+                    <img src="../../assets/icons/arrow-left.png"/>
+                    <span></span>
+                </button>
+  
+                <div class="header-title flex-wrapper">
+                   <span>Vouchers</span>
+                </div>
+  
+                <div class="profile-icon profile-icon-right" [routerLink]="['/profile']">
+                    <img [src]="account.data.profileimage"/>
+                </div>
+            </section>
+        </div>
+    </section>
+  </ion-header>
+  
+  <ion-content id="content-section">
+    <div class="wrapper">
+        <div class="w2-18">
+            <div class="savings-plan-top2">
+                <span>Generated Voucher{{s}}</span>
+            </div>
+        </div>
+    </div>
+  
+    <div class="wrapper" *ngIf="loaded == true">
+        <div class="w2-18">
+          <div class="table-list grid-wrapper grid-col-2 padd-down"
+          *ngFor="let voucher of vouchers">
+
+            <span class="table-title">Serial Number</span>
+            <span class="table-text">{{voucher.SerialNumber}}</span>
+  
+            <span class="table-title last">Voucher Code</span>
+            <span class="table-text" (click)="copyCode(voucher.VoucherCode, $event)">{{voucher.VoucherCode}}</span>
+          </div>
+
+          <!-- send option -->
+          <section class="button-group">
+            <button ion-button class="btn-outline" (click)="send()"><span>send to mail</span></button>
+          </section>
+        </div>
+    </div>
+  
+  
+  </ion-content>
+  
+  <app-footer></app-footer>

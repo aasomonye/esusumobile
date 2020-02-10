@@ -1,0 +1,76 @@
+<ion-header id="header" no-shadow no-border>
+    <section class="wrapper">
+        <div class="w2-18">
+            <section class="grid-wrapper grid-col-3">
+                <button ion-button class="arrow-left" (click)="goback()">
+                    <img src="../../assets/icons/arrow-left.png"/>
+                    <span>Back</span>
+                </button>
+  
+                <div class="header-title flex-wrapper">
+                </div>
+  
+                <div class="profile-icon profile-icon-right" [routerLink]="['/profile']">
+                    <img [src]="account.data.profileimage"/>
+                </div>
+            </section>
+        </div>
+    </section>
+  </ion-header>
+  
+  <ion-content id="content-section">
+      <div class="wrapper">
+          <div class="w2-18">
+              <div class="savings-plan-top2">
+                  <!-- <span>More Information</span> -->
+              </div>
+          </div>
+      </div>
+    
+      <div class="wrapper">
+          <div class="w2-18">
+            <div class="info-table-list">
+              
+              <section class="info-table">
+                <span class="info-table-title">{{report.BankAccountName}}</span>
+                <span class="info-table-caption">Account Name</span>
+              </section>
+  
+              <section class="info-table">
+                <span class="info-table-title">{{report.BankName}}</span>
+                <span class="info-table-caption">Bank</span>
+              </section>
+              
+              <section class="info-table">
+                <span class="info-table-title">{{report.BankAccountNumber}}</span>
+                <span class="info-table-caption">Account Number</span>
+              </section>
+
+              <section class="info-table">
+                  <span class="info-table-title">{{report.DateRequested}}</span>
+                  <span class="info-table-caption">Date Requested</span>
+              </section>
+
+              <section class="info-table" *ngIf="report.Status == 'Approved'">
+                  <span class="info-table-title">{{report.DateApproved}}</span>
+                  <span class="info-table-caption">Date Approved</span>
+              </section>
+
+              <section class="info-table">
+                  <span class="info-table-title">{{report.Status}}</span>
+                  <span class="info-table-caption">Status</span>
+              </section>
+              
+              <section class="info-table">
+                <span class="info-table-title">₦{{report.WithdrawalAmount}}</span>
+                <span class="info-table-caption">Amount</span>
+              </section>
+  
+            </div>
+          </div>
+      </div>
+  
+    
+    </ion-content>
+  
+  <app-footer></app-footer>

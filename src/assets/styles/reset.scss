@@ -1,0 +1,7 @@
+.inner-scroll{background: transparent !important;}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+.faint-input::placeholder{opacity: 0.3 !important;}

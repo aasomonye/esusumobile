@@ -1,0 +1,89 @@
+<ion-header id="header" no-shadow no-border>
+  <section class="wrapper">
+      <div class="w2-18">
+          <section class="grid-wrapper grid-col-3">
+              <button ion-button class="arrow-left" (click)="goback()">
+                  <img src="../../assets/icons/arrow-left.png"/>
+                  <span></span>
+              </button>
+
+              <div class="header-title flex-wrapper">
+                 <span>Plan Info</span>
+              </div>
+
+              <div class="profile-icon profile-icon-right" [routerLink]="['/profile']">
+                  <img [src]="account.data.profileimage"/>
+              </div>
+          </section>
+      </div>
+  </section>
+</ion-header>
+
+<ion-content id="content-section">
+  <div class="wrapper">
+      <div class="w2-18">
+          <div class="savings-plan-top2">
+              <span>Basic Information</span>
+          </div>
+      </div>
+  </div>
+
+  <div class="wrapper">
+      <div class="w2-18">
+        <div class="table-list grid-wrapper grid-col-2">
+          <span class="table-title">Tenure (In Days)</span>
+          <span class="table-text">{{plan.Duration}}</span>
+
+          <span class="table-title">Maximum Balance</span>
+          <span class="table-text">₦{{plan.MaximumBalance}}</span>
+
+          <span class="table-title">Number Of Withdrawals</span>
+          <span class="table-text">{{plan.NoOfPermissibleWithdrawals}}</span>
+
+          <span class="table-title">Minimum Balance</span>
+          <span class="table-text">₦{{plan.MinimumBalance}}</span>
+
+          <span class="table-title">Savings Frequency</span>
+          <span class="table-text">{{plan.SavingsFrequency}}</span>
+
+          <span class="table-title last">Interest Rate</span>
+          <span class="table-text">{{plan.Interest}}% per annum</span>
+        </div>
+      </div>
+  </div>
+
+
+  <div class="wrapper fund-section">
+      <div class="w2-18">
+          <div class="savings-plan-top2">
+              <span>Bonus Condition</span>
+          </div>
+      </div>
+  </div>
+
+  <div class="wrapper">
+      <div class="w2-18">
+        <div class="table-list grid-wrapper grid-col-2">
+          <span class="table-title">Bonus Percentage On Interest</span>
+          <span class="table-text">{{plan.PercentageOfInterest}}%</span>
+
+          <span class="table-title">Minimum Balance</span>
+          <span class="table-text">₦{{plan.Balance}}</span>
+
+          <span class="table-title last" *ngIf="plan.NumberOfSavingsPerMonth > 0">Savings Frequency (Per Month)</span>
+          <span class="table-text" *ngIf="plan.NumberOfSavingsPerMonth > 0">{{plan.NumberOfSavingsPerMonth}}</span>
+        </div>
+      </div>
+  </div>
+
+  <div class="wrapper">
+        <div class="w2-18">
+            <section class="button-group">
+                <button ion-button class="btn-full" (click)="goback()"><span>Go Back</span></button>
+            </section>
+        </div>
+  </div>
+
+</ion-content>
+
+<app-footer></app-footer>

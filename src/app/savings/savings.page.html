@@ -1,0 +1,59 @@
+<ion-header id="header" no-shadow no-border *ngIf="havePlans == true">
+    <section class="wrapper">
+        <div class="w2-18">
+            <section class="grid-wrapper grid-col-3">
+                <button ion-button class="arrow-left" (click)="goback()">
+                <img src="../../assets/icons/left-arrow-1.png"/>
+                <span>{{page}}</span>
+                </button>
+
+                <div class="header-title flex-wrapper">
+                   <span> Savings </span>
+                </div>
+
+                <div class="profile-icon profile-icon-right" [routerLink]="['/profile']">
+                    <img [src]="account.data.profileimage"/>
+                </div>
+            </section>
+        </div>
+    </section>
+</ion-header>
+
+<ion-content id="content-section">
+    <div class="wrapper" *ngIf="havePlans == true">
+        <div class="w2-18">
+            <div class="savings-plan-top">
+                <!-- <span>Your Saving plans</span> -->
+            </div>
+        </div>
+    </div>
+
+    <div class="wrapper" *ngIf="havePlans == true">
+        <div class="w2-18">
+            <!-- savings plans list-->
+            <div class="top-button wrapper">
+                <div class="w1-10 add-btn" [routerLink]="['/addsavings']">
+                    <img src="../../assets/icons/add2.png"/>
+                    <span>Add new plan</span>
+                </div>
+                <div class="w10-end fund-btn" [routerLink]="['/fund-savings']">
+                    <span>₦ &nbsp; Fund a plan</span>
+                </div>
+            </div>
+            <!-- plans list -->
+            <div class="stacked-lists grid-wrapper grid-col-1">
+                <div class="stacked-list flex-wrapper" *ngFor="let plan of plans; let i = index" (click)="savings(plan,i)">
+                    <span class="icon">
+                    <img src="../../assets/icons/briefcase.png">
+                    </span>
+                    <span class="text">{{plan.name}} - ({{getCode(plan.plan.Code)}})</span>
+                    <span class="amount">₦{{plan.plan.AvailableBalance}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</ion-content>
+
+<app-footer *ngIf="havePlans == true"></app-footer>
+

@@ -1,0 +1,137 @@
+<ion-header id="header" no-shadow no-border class="profile-page">
+    <section class="wrapper profile-page">
+        <div class="w2-18">
+            <section class="grid-wrapper grid-col-3">
+                <button ion-button class="arrow-left" (click)="goback()">
+                    <img src="../../assets/icons/arrow-left.png"/>
+                    <span>Back</span>
+                </button>
+
+                <div class="header-title flex-wrapper">
+                   <!-- <span>Agent</span> -->
+                </div>
+
+                <div class="profile-icon profile-icon-right" [routerLink]="['/profile']">
+                     <img [src]="account.data.profileimage"/>
+                </div>
+            </section>
+        </div>
+    </section>
+</ion-header>
+
+
+<ion-content id="content-section">
+   <div class="flex-wrapper flex-center">
+         <div class="wrapper">
+         <div class="w2-18 flex-wrapper root">
+            <div class="page-wrapper">
+               <div class="flex-wrapper flex-column page-wrapper-inner">
+                     <div class="intro-text">
+                        <h1>Account Information</h1>
+                        <p>Hello {{fullname}} you look amazing today! You could change your pin, password, display avatar and also find your account details here.</p>
+                     </div>
+         
+                     <div class="intro-form move-down box-info-wrapper">
+                        <div class="block-info grid-wrapper grid-col-12">
+                              <div class="w1-3 icon-top">
+                                 <img src="../../assets/icons/user.png"/>
+                              </div>
+                              <div class="w3-13 grid-wrapper box-info-inner grid-col-1">
+                                 <div class="block-row flex-wrapper flex-column">
+                                    <h1>{{lastname}}</h1>
+                                    <span>Last Name</span>
+                                 </div>
+                     
+                                 <div class="block-row flex-wrapper flex-column">
+                                       <h1>{{othername}}</h1>
+                                       <span>Other Name</span>
+                                 </div>
+                     
+                              </div>
+                        </div>
+               
+                        <div class="block-info grid-wrapper grid-col-12">
+                           <div class="w1-3 icon-top">
+                              <img src="../../assets/icons/call-answer.png"/>
+                           </div>
+                           <div class="w3-13 grid-wrapper box-info-inner grid-col-1">
+               
+                              <div class="block-row flex-wrapper flex-column">
+                                 <h1>{{profile.PhoneNumber}}</h1>
+                                 <span>Mobile</span>
+                              </div>
+               
+                           </div>
+                        </div>
+               
+                        <div class="block-info grid-wrapper grid-col-12">
+                           <div class="w1-3 icon-top">
+                              <img src="../../assets/icons/envelope.png"/>
+                           </div>
+                           <div class="w3-13 grid-wrapper box-info-inner grid-col-1">
+               
+                              <div class="block-row flex-wrapper flex-column">
+                                 <h1>{{profile.EmailAddress}}</h1>
+                                 <span>Email Address</span>
+                              </div>
+               
+                           </div>
+                        </div>
+               
+                        <div class="block-info grid-wrapper grid-col-12">
+                           <div class="w1-3 icon-top">
+                              <img src="../../assets/icons/round-account.png"/>
+                           </div>
+                           <div class="w3-13 grid-wrapper box-info-inner grid-col-1">
+               
+                              <div class="block-row flex-wrapper flex-column">
+                                 <h1>{{profile.BVN}}</h1>
+                                 <span>BVN</span>
+                              </div>
+               
+                              <div class="block-row flex-wrapper flex-column">
+                                 <h1>{{profile.DateCreated}}</h1>
+                                 <span>Registration Date</span>
+                              </div>
+               
+                           </div>
+                        </div>
+               
+                        <div class="block-info grid-wrapper grid-col-12" *ngIf="bankConfirmed == true">
+                           <div class="w1-3 icon-top">
+                              <img src="../../assets/icons/bank-building.png"/>
+                           </div>
+                           <div class="w3-13 grid-wrapper box-info-inner grid-col-1">
+               
+                              <div class="block-row flex-wrapper flex-column">
+                                 <h1>{{bank.data.AccountHolderName}}</h1>
+                                 <span>Account Name</span>
+                              </div>
+               
+                              <div class="block-row flex-wrapper flex-column">
+                                 <h1>{{bank.data.AccountNumber}}</h1>
+                                 <span>Account Number</span>
+                              </div>
+               
+                              <div class="block-row flex-wrapper flex-column">
+                                 <h1>{{bank.data.bank}}</h1>
+                                 <span>Bank</span>
+                              </div>
+               
+                           </div>
+                        </div>
+               
+                        <section class="button-group">
+                           <button ion-button class="btn-outline" [routerLink]="['/profile-image']"><span>change profile picture</span></button>
+                           <button ion-button class="btn-outline" [routerLink]="['/changepassword']"><span>change password</span></button>
+                           <button ion-button class="btn-outline" [routerLink]="['/pinreset']"><span>change pin</span></button>
+                        </section>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+   </div>
+</ion-content>
+
+<app-footer></app-footer>

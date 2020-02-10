@@ -1,0 +1,61 @@
+<ion-header id="header" no-shadow no-border>
+    <section class="wrapper">
+        <div class="w2-18">
+            <section class="grid-wrapper grid-col-3">
+                <button ion-button class="arrow-left" (click)="goback()">
+                    <img src="../../assets/icons/left-arrow-1.png"/>
+                    <span>Back</span>
+                </button>
+
+                <div class="header-title flex-wrapper">
+                   <span></span>
+                </div>
+            </section>
+        </div>
+    </section>
+</ion-header>
+<ion-content>
+    <div class="flex-wrapper flex-center">
+        <div class="wrapper">
+          <div class="w2-18 flex-wrapper root">
+            <div class="page-wrapper">
+                <div class="flex-wrapper flex-column page-wrapper-inner">
+                    <div class="intro-text">
+                        <h1>Complete your registration.</h1>
+                        <p>One last step to go. we need to take your security answer for password recovery and your date of birth.</p>
+                        
+                        <div class="intro-form move-down">
+                                <section class="input-wrapper">
+                                    <label>Security Question</label>
+                                    <ion-select placeholder="Please select a question" [(ngModel)]="formpack.SecurityQuestion">
+                                         <ion-select-option value="1">What is your mother's maiden name?</ion-select-option>
+                                         <ion-select-option value="2">What is the name of your childhood bestfriend?</ion-select-option>
+                                         <ion-select-option value="3">What is the name of your first car?</ion-select-option>
+                                    </ion-select>
+                                </section>
+         
+                                <section class="input-wrapper">
+                                   <label>Security answer</label>
+                                   <input type="text" placeholder="Your security answer" [(ngModel)]="formpack.SecurityAnswer"/>
+                               </section>
+
+                               <section class="input-wrapper">
+                                    <label>Date of Birth (dd/mm/yyyy) </label>
+                                    <ion-datetime display-format="DD/MM/YYYY" picker-format="DD MM YYYY" placeholder="Your date of birth" [(ngModel)]="formpack.DateOfBirth"></ion-datetime>
+                                </section>
+           
+                                <section class="button-group">
+                                   <button ion-button class="btn-full" type="submit" (click)="complete()"><span>sign me up</span></button>
+                                   <!-- <button ion-button class="btn-outline" (click)="goto('/home')"><span>remind me later</span></button> -->
+                                </section>
+                             </div>
+                    </div>
+        
+                    
+                 </div>
+            </div>
+          </div>
+        </div>
+    </div>
+</ion-content>
+  

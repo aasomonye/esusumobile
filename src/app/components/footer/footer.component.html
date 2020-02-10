@@ -1,0 +1,120 @@
+<ion-footer id="footer">
+    <section class="wrapper">
+        <div class="w2-18">
+            <section class="grid-wrapper grid-col-5">
+                <div class="menu-icon" (click)="goto('/dashboard')">
+                  <span class="icon home-icon"></span>
+                  <span class="menu-icon-text">home</span>
+                </div>
+                 <div class="menu-icon" (click)="goto('/inbox')">
+                  <span class="icon support-icon"></span>
+                  <span class="menu-icon-text">support</span>
+                </div>
+                <!-- <div class="menu-icon" (click)="goto('/deposit')">
+                  <span class="icon fund-icon"></span>
+                  <span class="menu-icon-text">fund</span>
+                </div> -->
+                <div class=""></div>
+                <div class=""></div>
+                <div class="">
+                  <div class="pan-wrapper">
+                      <span class="pan-wrapper-inner2">
+                          <span class="pan-close flex-wrapper flex-column">
+                              <span class="close-button flex-wrapper" ion-button (click)="showMenu()">
+                                <img src="../../assets/icons/menu-4.png"/>
+                              </span>
+                              <span class="close-text">Menu</span>
+                          </span>
+                        </span>
+                  </div>
+                </div>
+            </section>
+        </div>
+    </section>
+</ion-footer>
+
+<!-- menu pan -->
+<section class="menu-pan">
+  <ion-content id="ioncontent">
+    <div class="wrapper">
+      <div class="w2-18 grid-wrapper grid-col-2">
+         <div class="menu-pan-header grid-wrapper grid-col-2 w1-3">
+            <span class="pan-title">Options you may like</span>
+            <span class="pan-wrapper">
+              <span class="pan-wrapper-inner">
+                <span class="pan-close flex-wrapper flex-column">
+                    <span class="close-button flex-wrapper" ion-button (click)="closeMenu()">
+                      <img src="../../assets/icons/close.png"/>
+                    </span>
+                    <span class="close-text">close</span>
+                </span>
+              </span>
+            </span>
+         </div>
+
+         <div class="menu-pan-body grid-wrapper grid-col-2 w1-3">
+
+          <div class="menu-list">
+              <span class="flex-wrapper flex-column flex-center" (click)="goto('/dashboard')">
+                  <img src="../../assets/icons/home.png"/>
+                  <span class="menu-list-text">Home</span>
+              </span>
+            </div>
+
+            <div class="menu-list">
+                <span class="flex-wrapper flex-column flex-center" (click)="goto('/report')">
+                    <img src="../../assets/icons/report.png"/>
+                    <span class="menu-list-text">Report</span>
+                </span>
+            </div>
+
+            <div class="menu-list">
+              <span class="flex-wrapper flex-column flex-center" (click)="goto('/savings')">
+                 <img src="../../assets/icons/investment2.png"/>
+                 <span class="menu-list-text">Save Now</span>
+              </span>
+            </div>
+
+            <div class="menu-list">
+                <span class="flex-wrapper flex-column flex-center" (click)="goto('/deposit')">
+                   <img src="../../assets/icons/wallet.png"/>
+                   <span class="menu-list-text">Fund Wallet</span>
+                </span>
+            </div>
+
+            <div class="menu-list">
+                <span class="flex-wrapper flex-column flex-center" (click)="goto('/withdraw')">
+                   <img src="../../assets/icons/withdrawal.png"/>
+                   <span class="menu-list-text">Withdraw</span>
+                </span>
+            </div>
+
+            <div class="menu-list">
+                <span class="flex-wrapper flex-column flex-center" (click)="goto('/verification')">
+                   <img src="../../assets/icons/verify.png"/>
+                   <span class="menu-list-text">Verification</span>
+                </span>
+            </div>
+
+            <div class="menu-list">
+                <span class="flex-wrapper flex-column flex-center" (click)="goto('/agent')">
+                   <img src="../../assets/icons/user-7.png"/>
+                   <span class="menu-list-text">Agent</span>
+                </span>
+            </div>
+
+            <div class="menu-list">
+                <span class="flex-wrapper flex-column flex-center" (click)="goto('/pinreset')">
+                   <img src="../../assets/icons/unlocked-1.png"/>
+                   <span class="menu-list-text">Pin Reset</span>
+                </span>
+            </div>
+         </div>
+
+         <div class="menu-pan-footer w1-3 flex-wrapper">
+            
+         </div>
+      </div>
+    </div>
+  </ion-content>
+</section>

@@ -1,0 +1,70 @@
+<ion-header id="header" no-shadow no-border>
+  <section class="wrapper">
+      <div class="w2-18">
+          <section class="grid-wrapper grid-col-3">
+              <button ion-button class="arrow-left" (click)="goback()">
+                  <img src="../../assets/icons/arrow-left.png"/>
+                  <span>Back</span>
+              </button>
+
+              <div class="header-title flex-wrapper">
+                 <!-- <span>Add Savings</span> -->
+              </div>
+
+              <div class="profile-icon profile-icon-right" [routerLink]="['/profile']">
+                <img [src]="account.data.profileimage"/>
+              </div>
+          </section>
+      </div>
+  </section>
+</ion-header>
+
+<ion-content>
+  <div class="flex-wrapper flex-center">
+    <div class="wrapper">
+      <div class="w2-18 flex-wrapper root">
+        <div class="page-wrapper">
+            <div class="flex-wrapper flex-column page-wrapper-inner">
+                <div class="intro-text">
+                    <h1>Send a support ticket</h1>
+                    <p>Having techincal difficulties or need to speak to a support agent? please use the form below.</p>
+
+                    <div class="intro-form move-up">
+
+                      <section class="input-wrapper">
+                        <label>Ticket Type</label>
+                        <ion-select [(ngModel)]="ticketType" stacked placeholder="Please choose a ticket type">
+                          <ion-select-option value="techincal">Technical Support</ion-select-option>
+                          <ion-select-option value="customer">Customer Service</ion-select-option>
+                          <ion-select-option value="billing">Billing</ion-select-option>
+                          <ion-select-option value="voucher">Voucher</ion-select-option>
+                          <ion-select-option value="deposit & withdraw">Deposit & Withdraw</ion-select-option>
+                          <ion-select-option value="general">General</ion-select-option>
+                        </ion-select>
+                        </section>
+
+                      <section class="input-wrapper">
+                          <label>Ticket Title</label>
+                          <input type="text" placeholder="Ticket title" [(ngModel)]="ticketTitle"/>
+                      </section>
+
+                      <section class="input-wrapper expand-wrapper">
+                        <label>Your Message</label>
+                        <textarea placeholder="Type in your message here." [(ngModel)]="message"></textarea>
+                     </section>
+   
+                      <section class="button-group">
+                         <button ion-button type="submit" class="btn-full" (click)="send()"><span>send</span></button>
+                      </section>
+                   </div>
+                </div>
+    
+                
+             </div>
+        </div>
+      </div>
+    </div>
+</div>
+</ion-content>
+
+<app-footer></app-footer>

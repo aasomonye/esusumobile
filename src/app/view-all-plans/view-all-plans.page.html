@@ -1,0 +1,73 @@
+<ion-header id="header" no-shadow no-border>
+  <section class="wrapper">
+      <div class="w2-18">
+          <section class="grid-wrapper grid-col-3">
+              <button ion-button class="arrow-left" (click)="goback()">
+                  <img src="../../assets/icons/arrow-left.png"/>
+                  <span>Back</span>
+              </button>
+
+              <div class="header-title flex-wrapper">
+                 <!-- <span>Saving plans</span> -->
+              </div>
+
+              <div class="profile-icon profile-icon-right" [routerLink]="['/profile']">
+                  <img [src]="account.data.profileimage"/>
+              </div>
+          </section>
+      </div>
+  </section>
+</ion-header>
+
+<ion-content id="content-section">
+    <div class="wrapper">
+        <div class="w2-18">
+            <div class="savings-plan-top2">
+                <!-- <span>More Information</span> -->
+            </div>
+        </div>
+    </div>
+  
+    <div class="wrapper">
+        <div class="w2-18">
+          <div class="info-table-list">
+            
+            <section class="info-table" *ngIf="hideplan == false">
+              <span class="info-table-title">{{report.plan}}</span>
+              <span class="info-table-caption">Saving Plan</span>
+            </section>
+
+            <section class="info-table">
+              <span class="info-table-title" *ngIf="report.RecordType == 'CR'">Credit</span>
+              <span class="info-table-title" *ngIf="report.RecordType == 'DR'">Debit</span>
+              <span class="info-table-caption">Transaction Type</span>
+            </section>
+
+            <section class="info-table">
+              <span class="info-table-title">{{report.Narration}}</span>
+              <span class="info-table-caption">Description</span>
+            </section>
+            
+            <section class="info-table">
+              <span class="info-table-title">{{report.PostingDate}}</span>
+              <span class="info-table-caption">Transaction Date</span>
+            </section>
+            
+            <section class="info-table">
+              <span class="info-table-title">₦{{report.Amount}}</span>
+              <span class="info-table-caption">Amount</span>
+            </section>
+
+            <section class="info-table">
+              <span class="info-table-title">₦{{report.BalanceAfterTrx}}</span>
+              <span class="info-table-caption">Balance</span>
+            </section>
+
+          </div>
+        </div>
+    </div>
+
+  
+  </ion-content>
+
+<app-footer></app-footer>

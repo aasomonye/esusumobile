@@ -1,0 +1,145 @@
+<ion-header id="header" no-shadow no-border *ngIf="allloaded == true">
+    <section class="wrapper">
+        <div class="w2-18">
+            <section class="grid-wrapper grid-col-3">
+                <button ion-button class="arrow-left" (click)="goback()">
+                    <img src="../../assets/icons/arrow-left.png"/>
+                    <span>Back</span>
+                </button>
+
+                <div class="header-title flex-wrapper">
+                   <span>Summary</span>
+                </div>
+
+                <div class="profile-icon profile-icon-right" [routerLink]="['/profile']">
+                    <img [src]="account.data.profileimage"/>
+                </div>
+            </section>
+        </div>
+    </section>
+</ion-header>
+
+<ion-content id="content-section" *ngIf="allloaded == true">
+    <div class="wrapper segment">
+       <div class="w2-18">
+          <ion-segment (ionChange)="segmentChanged($event)">
+              <ion-segment-button value="{{active}}" checked>
+                <ion-label>{{activeText}}</ion-label>
+              </ion-segment-button>
+              <ion-segment-button value="{{other}}">
+                <ion-label>{{otherText}}</ion-label>
+              </ion-segment-button>
+          </ion-segment>
+       </div>
+    </div>
+
+    <div class="savings">
+      <div class="wrapper" *ngIf="savingsActive == true && savingsLoaded == true">
+
+          <div class="w2-18 table-report" *ngFor="let v of savings">
+            <div class="table-list grid-wrapper grid-col-2" >
+
+              <span class="table-title">Beneficiary</span>
+              <span class="table-text">{{v.Beneficiary}}</span>
+
+              <span class="table-title">Amount</span>
+              <span class="table-text">₦{{v.Amount}}</span>
+    
+              <span class="table-title">Beneficiary Account</span>
+              <span class="table-text">{{v.BeneficiaryAccount}}</span>
+    
+              <span class="table-title">Initiator</span>
+              <span class="table-text">{{v.Initiator}}</span>
+
+              <span class="table-title">SerialNumber</span>
+              <span class="table-text">{{v.SerialNumber}}</span>
+
+              <span class="table-title">VoucherCode</span>
+              <span class="table-text">{{v.VoucherCode}}</span>
+
+              <span class="table-title">Status</span>
+              <span class="table-text">{{v.Status}}</span>
+
+              <span class="table-title">Date Created</span>
+              <span class="table-text">{{v.DateCreated.date}}</span>
+
+              <span class="table-title">Date Used</span>
+              <span class="table-text">{{v.DateUsed.date}}</span>
+
+              <span class="table-title last">BatchNumber</span>
+              <span class="table-text">{{v.BatchNumber}}</span>
+            </div>
+
+            <div class="toggle-list">Expand</div>
+          </div>
+
+          <div class="load-more-wrapper" *ngIf="showSavingsLoad == true">
+              <div class="load-more-btn" (click)="loadmore('savings')">
+                <span>Load More</span>
+                <img src="../../assets/icons/down-arrow-blue.png"/>
+              </div>
+          </div>
+
+      </div>
+    </div>
+
+    <div class="withdrawals">
+      <div class="wrapper" *ngIf="savingsActive == false && withdrawalsLoaded == true">
+          <div class="w2-18 table-report" *ngFor="let w of withdrawals">
+            <div class="table-list grid-wrapper grid-col-2">
+              <span class="table-title">Amount</span>
+              <span class="table-text">₦{{w.WithdrawalAmount}}</span>
+    
+              <span class="table-title">Account Number</span>
+              <span class="table-text">{{w.BankAccountNumber}}</span>
+    
+              <span class="table-title">Account Holder</span>
+              <span class="table-text">{{w.BankAccountName}}</span>
+    
+              <span class="table-title">Bank</span>
+              <span class="table-text">{{w.BankName}}</span>
+
+              <span class="table-title">Date Requested</span>
+              <span class="table-text">{{w.DateRequested.date}}</span>
+
+              <span class="table-title">Date Approved</span>
+              <span class="table-text">{{w.DateApproved.date}}</span>
+
+              <span class="table-title">Status</span>
+              <span class="table-text">{{status(w.Status)}}</span>
+
+              <span class="table-title last">Transaction Reference</span>
+              <span class="table-text">{{w.TransactionReference}}</span>
+            </div>
+
+            <div class="toggle-list">Expand</div>
+          </div>
+
+          <div class="load-more-wrapper" *ngIf="showWithdrawalsLoad == true">
+            <div class="load-more-btn" (click)="loadmore('withdrawals')">
+              <span>Load More</span>
+              <img src="../../assets/icons/down-arrow-blue.png"/>
+            </div>
+          </div>
+
+      </div>
+    </div>
+
+    <!-- size filter -->
+    <div class="size-filter-control btn-only">
+        <div class="size-filter-btn">
+            <span class="filter"></span>
+        </div>
+        
+        <div class="filter-box-wrapper">
+          <div class="filter-box">
+            <span>Filter page size</span>
+            <input type="number" min="1" [(ngModel)]="pagesize" placeholder="1-1000000"/>
+            <button (click)="filter()">Filter</button>
+          </div>
+        </div>
+    </div>
+
+</ion-content>
+
+<app-footer *ngIf="allloaded == true"></app-footer>

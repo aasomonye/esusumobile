@@ -1,0 +1,60 @@
+<ion-header id="header" no-shadow no-border>
+    <section class="wrapper">
+        <div class="w2-18">
+            <section class="grid-wrapper grid-col-3">
+                <button ion-button class="arrow-left" (click)="goback()">
+                    <img src="../../assets/icons/arrow-left.png"/>
+                    <span>Back</span>
+                </button>
+
+                <div class="header-title flex-wrapper">
+                   <!-- <span>Saving plans</span> -->
+                </div>
+
+                <div class="profile-icon profile-icon-right" [routerLink]="['/profile']">
+                    <img [src]="account.data.profileimage"/>
+                </div>
+            </section>
+        </div>
+    </section>
+</ion-header>
+
+<ion-content id="content-section">
+
+    <div class="flex-wrapper flex-center">
+        <div class="wrapper">
+          <div class="w2-18 flex-wrapper root">
+            <div class="page-wrapper">
+                <div class="flex-wrapper flex-column page-wrapper-inner">
+                    <div class="intro-text">
+                        <h1>{{plan.Name}} Quick Save.</h1>
+                        <p>Please enter an amount and your pin to continue.</p>
+
+                        <div class="intro-form">
+
+                            <section class="input-wrapper">
+                                <label>Amount</label>
+                                <input type="number" placeholder="Enter an amount" [(ngModel)]="formpack.Amount"/>
+                            </section>
+    
+                            <section class="input-wrapper">
+                                <label>PIN</label>
+                                <input type="password" inputmode="numeric" pattern="[0-9]*" placeholder="Your PIN" [(ngModel)]="PIN"/>
+                            </section>
+         
+                            <section class="button-group">
+                               <button ion-button type="submit" class="btn-full" (click)="save()"><span>Save</span></button>
+                            </section>
+                      </div>
+                      
+                    </div>
+    
+                 </div>
+            </div>
+          </div>
+        </div>
+    </div>
+
+</ion-content>
+
+<app-footer></app-footer>

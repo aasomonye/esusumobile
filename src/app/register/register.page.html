@@ -1,0 +1,71 @@
+<ion-header id="header" no-shadow no-border class="register">
+    <section class="wrapper register">
+        <div class="w2-18">
+            <section class="grid-wrapper grid-col-3">
+                <button ion-button class="arrow-left" (click)="goback()">
+                  <img src="../../assets/icons/left-arrow-1.png"/>
+                  <span>Back</span>
+                </button>
+
+                <div class="header-title flex-wrapper">
+                   <span></span>
+                </div>
+            </section>
+        </div>
+    </section>
+</ion-header>
+<ion-content id="content-section">
+    <div class="flex-wrapper flex-center register">
+        <div class="wrapper">
+          <div class="w2-18 flex-wrapper root">
+            <div class="page-wrapper">
+                <div class="flex-wrapper flex-column page-wrapper-register">
+                    <div class="intro-text">
+                        <!-- <div class="img"></div> -->
+                        <h1>Create a free account.</h1>
+                        <p>Continue registration by filling in your basic information here and then proceed to the security center. You should have your new esusu account within the next 5 minutes.</p>
+
+                        <div class="intro-form move-down">
+                                <section class="input-wrapper input-only">
+                                    <input type="text" placeholder="Last Name" [(ngModel)]="formpack.Lastname"/>
+                                </section>
+
+                                <section class="input-wrapper input-only">
+                                    <input type="text" placeholder="Other Names" [(ngModel)]="formpack.Othernames"/>
+                                </section>
+         
+                                <section class="input-wrapper input-only">
+                                   <input type="email" placeholder="Email Address" [(ngModel)]="formpack.EmailAddress"/>
+                               </section>
+         
+                               <section class="input-wrapper input-only">
+                                   <input type="tel" placeholder="Phone Number" [(ngModel)]="formpack.PhoneNumber"/>
+                               </section>
+
+                               <section class="input-wrapper input-only">
+                                    <input type="tel" pattern="[0-9]*" placeholder="Your BVN" [(ngModel)]="formpack.BVN"/>
+                                </section>
+         
+                               <section class="input-wrapper input-only">
+                                   <input type="password" placeholder="New Password" [(ngModel)]="formpack.Password"/>
+                               </section>
+
+                               <section class="input-wrapper input-only">
+                                    <input type="password" placeholder="Password Again" [(ngModel)]="formpack.ConfirmPassword"/>
+                               </section>
+           
+                                <section class="button-group">
+                                   <button ion-button type="submit" class="btn-full" (click)="continue()"><span>next step</span></button>
+                                </section>
+                             </div>
+                    </div>
+        
+                    
+                 </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </ion-content>
+
+  <app-infobar></app-infobar>

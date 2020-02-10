@@ -1,0 +1,55 @@
+<ion-header id="header" no-shadow no-border>
+    <section class="wrapper">
+        <div class="w2-18">
+            <section class="grid-wrapper grid-col-3">
+                <button ion-button class="arrow-left" (click)="gotoSavings()">
+                    <img src="../../assets/icons/arrow-left.png"/>
+                    <span>Savings</span>
+                </button>
+
+                <div class="header-title flex-wrapper">
+                   <!-- <span>Saving plans</span> -->
+                </div>
+
+                <div class="profile-icon profile-icon-right" [routerLink]="['/profile']">
+                    <img [src]="account.data.profileimage"/>
+                </div>
+            </section>
+        </div>
+    </section>
+</ion-header>
+
+<ion-content id="content-section">
+
+    <div class="flex-wrapper flex-center">
+        <div class="wrapper">
+          <div class="w2-18 flex-wrapper root">
+            <div class="page-wrapper">
+                <div class="flex-wrapper flex-column page-wrapper-inner">
+                    <div class="intro-text">
+                        <h1>Add a savings plan.</h1>
+                        <p>We've made it easy for you to set affordable plans, get amazing return on investment and convinently make withdrawals after savings. Select a plan below.</p>
+                    </div>
+        
+                    <div class="intro-form grid-wrapper grid-col-1 savings-plans">
+                       <!-- plans list -->
+                       <div class="plan-list" *ngFor="let plan of plans" (click)="form(plan)">
+                          <div class="plan-list-info">
+                            <h1>{{plan.Name}}</h1>
+                            <p>{{trimText(plan.Description)}}</p>
+                          </div>
+                          <div class="plan-list-btn w10-13">
+                            <img src="../../assets/icons/add2.png"/>
+                          </div>
+                        </div>
+              
+                    </div>
+                 </div>
+            </div>
+          </div>
+        </div>
+    </div>
+
+</ion-content>
+
+<app-footer></app-footer>

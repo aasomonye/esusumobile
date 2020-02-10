@@ -1,0 +1,168 @@
+<ion-content id="content-section">
+    <div class="dashboard-header">
+        <div class="wrapper">
+            <div class="w2-18 relative">
+                <div class="profile-section grid-wrapper grid-col-3">
+                    <div class="intro w1-3 flex-wrapper" [routerLink]="['/profile']">
+                        <img [src]="account.data.profileimage"/>
+                        <span class="intro-text flex-wrapper flex-column">
+                            <span>Good Day,</span>
+                            <h3>{{fullname}}</h3>
+                        </span>
+                    </div>
+                    <div class="w3-4 icon-power" (click)="logout()">
+                        <img src="../../assets/icons/power.png"/>
+                    </div>
+                </div> 
+                <!-- end profile -->
+
+                <!-- wallet balance -->
+                <ion-slides pager loop id="ion-balance-slides">
+                    <ion-slide>
+                        <div class="slide-balance flex-wrapper flex-column" (click)="reload()">
+                            <div class="slide-balance-head flex-wrapper">
+                                <span class="balance grid-wrapper grid-col-1">
+                                <span class="caption-title">your wallet balance</span>
+                                <span class="amount">₦{{balance}}</span>
+                                </span>
+    
+                                <span class="slide-title">
+                                tap to reload.
+                                </span>
+                            </div>
+    
+                            <div class="slide-balance-foot grid-wrapper grid-col-5">
+                                <div class="w1-4 grid-wrapper grid-col-1">
+                                    <span class="caption-title">account name</span>
+                                    <span class="caption-sub">{{fullname}}</span>
+                                </div>
+    
+                                <div class="w4-6 grid-wrapper grid-col-1">
+                                    <span class="caption-title">account number</span>
+                                    <span class="caption-sub">{{accountNumber}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </ion-slide>
+                    
+                    
+                    <ion-slide *ngFor="let plan of plans" (click)="gotoPlan(plan)">
+                        <div class="slide-balance flex-wrapper flex-column">
+                            <div class="slide-balance-head flex-wrapper">
+                                <span class="balance grid-wrapper grid-col-1">
+                                <span class="caption-title">your plan balance</span>
+                                <span class="amount">₦{{plan.AvailableBalance}}</span>
+                                </span>
+    
+                                <span class="slide-title">
+                                {{plan.Name}}
+                                </span>
+                            </div>
+    
+                            <div class="slide-balance-foot grid-wrapper grid-col-5">
+                                <div class="w1-4 grid-wrapper grid-col-1">
+                                    <span class="caption-title">account name</span>
+                                    <span class="caption-sub">{{fullname}}</span>
+                                </div>
+    
+                                <div class="w4-6 grid-wrapper grid-col-1">
+                                    <span class="caption-title">account number</span>
+                                    <span class="caption-sub">{{plan.Code}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </ion-slide>
+                     
+                </ion-slides>
+                <!-- end slide -->
+            </div>
+        </div>
+    </div>
+
+    <!-- refresher -->
+    <ion-refresher slot="fixed" (ionRefresh)="reload($event)">
+    <ion-refresher-content
+        pullingIcon="arrow-dropdown"
+        pullingText="Pull to reload"
+        refreshingSpinner="circles"
+        refreshingText="Please wait...">
+    </ion-refresher-content>
+    </ion-refresher>
+
+    <!-- shortcuts -->
+    <div class="app-shortcuts">
+            <div class="wrapper">
+                <div class="w2-18 relative">
+                  <!-- shortcuts -->
+                  <div class="shortcuts-header grid-wrapper grid-col-5">
+                      <div class="shortcuts-icon" (click)="goto('/deposit')">
+                         <img src="../../assets/icons/wallet.png" />
+                         <span>Fund</span>
+                      </div>
+      
+                      <div class="shortcuts-icon" (click)="goto('/withdraw')">
+                         <img src="../../assets/icons/withdrawal.png" />
+                         <span>Withdraw</span>
+                      </div>
+      
+                      <div class="shortcuts-icon" (click)="goto('/savings')">
+                         <img src="../../assets/icons/investment2.png" />
+                         <span>Save</span>
+                      </div>
+      
+                      <div class="shortcuts-icon" (click)="report2()">
+                         <img src="../../assets/icons/report.png" />
+                         <span>Report</span>
+                      </div>
+      
+                      <div class="shortcuts-icon" (click)="goto('/profile')">
+                         <img src="../../assets/icons/account.png" />
+                         <span>Account</span>
+                      </div>
+                   </div>
+                </div>
+            </div>
+    </div>
+
+    <br>
+    <br>
+    <!-- recent transactions -->
+    
+    <div class="wrapper">
+        <div class="w2-18">
+
+            <div class="transaction-list">
+                <div class="transaction-list-wrapper">
+                    <div class="transaction-list-header">
+                        Recent Transactions.
+                    </div>
+
+                    <div class="transaction-list-body grid-wrapper grid-col-12" *ngFor="let report of reports" (click)="viewall(report)">
+                        <div class="transaction-list-info w1-10 grid-wrapper grid-col-1">
+                            <span class="transaction-list-info-title">
+                                {{report.Narration}}
+                            </span>
+                            <span class="transaction-list-info-footer flex-wrapper">
+                                <span>{{report.AccountNumber}}</span>
+                            </span>
+                        </div>
+                        <div class="transaction-list-amount w10-13">
+                            <span class="good" *ngIf="report.RecordType == 'CR'">+₦{{report.Amount}}</span>
+                            <span class="bad" *ngIf="report.RecordType == 'DR'">-₦{{report.Amount}}</span>
+                        </div>
+                    </div>
+
+                    <!-- load more -->
+                    <div class="load-more-wrapper" *ngIf="hasReport == true">
+                        <div class="load-more-btn" (click)="loadMore()">
+                            <span>Load more</span>
+                            <img src="../../assets/icons/down-arrow-blue.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</ion-content>
+<app-footer></app-footer>

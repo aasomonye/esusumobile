@@ -1,0 +1,61 @@
+<ion-header id="header" no-shadow no-border>
+    <section class="wrapper">
+        <div class="w2-18">
+            <section class="grid-wrapper grid-col-3">
+                <button ion-button class="arrow-left" (click)="goback()">
+                    <img src="../../assets/icons/arrow-left.png"/>
+                    <span>Back</span>
+                </button>
+  
+                <div class="header-title flex-wrapper">
+                </div>
+  
+                <div class="profile-icon profile-icon-right" [routerLink]="['/profile']">
+                    <img [src]="account.data.profileimage"/>
+                </div>
+            </section>
+        </div>
+    </section>
+  </ion-header>
+  
+  <ion-content id="content-section">
+    <div class="flex-wrapper flex-center">
+      <div class="wrapper">
+        <div class="w2-18 flex-wrapper root">
+          <div class="page-wrapper">
+              <div class="flex-wrapper flex-column page-wrapper-inner">
+                  <div class="intro-text">
+                      <h1>Generate vouchers</h1>
+                      <p>Please provide the amount, your pin and number of vouchers you wish to generate.</p>
+                  
+                      <div class="intro-form move-down">
+                            <section class="input-wrapper">
+                                <label>Amount</label>
+                                <input type="number" placeholder="Voucher Amount" [(ngModel)]="formpack.Amount"/>
+                            </section>
+       
+                            <section class="input-wrapper">
+                               <label>PIN</label>
+                               <input type="password" inputmode="numeric" pattern="[0-9]*" placeholder="Your account PIN" [(ngModel)]="formpack.PIN"/>
+                            </section>
+       
+                            <section class="input-wrapper">
+                               <label>Number of Voucher[s]</label>
+                               <input type="number" placeholder="1-1000000" min="1" max="1000000" [(ngModel)]="formpack.NumberOfVouchers"/>
+                            </section>
+         
+                            <section class="button-group">
+                               <button ion-button class="btn-full" type="submit" (click)="generate()"><span>Generate</span></button>
+                            </section>
+                         </div>
+                  </div>
+      
+                  
+               </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  </ion-content>
+  
+  <app-footer></app-footer>

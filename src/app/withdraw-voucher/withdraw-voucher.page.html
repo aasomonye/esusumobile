@@ -1,0 +1,57 @@
+<ion-header id="header" no-shadow no-border>
+  <section class="wrapper">
+      <div class="w2-18">
+          <section class="grid-wrapper grid-col-3">
+              <button ion-button class="arrow-left" (click)="goback()">
+                  <img src="../../assets/icons/arrow-left.png"/>
+                  <span>Back</span>
+              </button>
+
+              <div class="header-title flex-wrapper">
+                 <!-- <span>Deposit</span> -->
+              </div>
+
+              <div class="profile-icon profile-icon-right" [routerLink]="['/profile']">
+                  <img [src]="account.data.profileimage"/>
+              </div>
+          </section>
+      </div>
+  </section>
+</ion-header>
+
+<ion-content>
+  <div class="flex-wrapper flex-center">
+    <div class="wrapper">
+      <div class="w2-18 flex-wrapper root">
+        <div class="page-wrapper">
+            <div class="flex-wrapper flex-column page-wrapper-inner">
+                <div class="intro-text">
+                    <h1>Withdraw via voucher</h1>
+                    <p>Please provide voucher amount and your pin to proceed.</p>
+                
+                    <div class="intro-form move-down">
+                      <div class="input-wrapper">
+                          <label>Voucher Amount</label>
+                          <input type="number" placeholder="Amount" [(ngModel)]="formpack.amount"/>
+                      </div>
+  
+                      <div class="input-wrapper">
+                          <label>Account PIN</label>
+                          <input type="password" inputmode="numeric" pattern="[0-9]*" placeholder="Your Pin" [(ngModel)]="formpack.pin"/>
+                      </div>
+
+                      <section class="button-group">
+                          <button ion-button type="submit" class="btn-outline" (click)="process()"><span>process</span></button>
+                      </section>
+                    </div>
+                </div>
+    
+                
+             </div>
+        </div>
+      </div>
+    </div>
+</div>
+</ion-content>
+
+<app-footer></app-footer>

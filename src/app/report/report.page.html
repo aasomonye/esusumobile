@@ -1,0 +1,75 @@
+<ion-header id="header" no-shadow no-border>
+    <section class="wrapper">
+        <div class="w2-18">
+            <section class="grid-wrapper grid-col-3">
+                <button ion-button class="arrow-left" (click)="goback()">
+                    <img src="../../assets/icons/arrow-left.png"/>
+                    <span>Back</span>
+                </button>
+
+                <div class="header-title flex-wrapper">
+
+                </div>
+
+                <div class="profile-icon profile-icon-right" [routerLink]="['/profile']">
+                    <img [src]="account.data.profileimage"/>
+                </div>
+            </section>
+        </div>
+    </section>
+</ion-header>
+
+<ion-content id="content-section">
+
+    <div class="flex-wrapper flex-center">
+        <div class="wrapper">
+          <div class="w2-18 flex-wrapper root">
+            <div class="page-wrapper">
+                <div class="flex-wrapper flex-column page-wrapper-inner">
+                    <div class="intro-text">
+                        <h1>Customer Reports</h1>
+                        <p>View all reports for your voucher, savings and wallet transactions.</p>
+                    </div>
+        
+                    <div class="intro-form grid-wrapper grid-col-1 move-down">
+                       <!-- plans list -->
+                       <div class="stacked-lists grid-wrapper grid-col-1">
+                          
+                         <div class="stacked-list flex-wrapper" (click)="form(1)">
+                            <span class="icon">
+                              <img src="../../assets/icons/report.png">
+                            </span>
+                            <span class="text">Wallet</span>
+                          </div>
+
+                          <div class="stacked-list flex-wrapper" (click)="form(2)">
+                              <span class="icon">
+                                <img src="../../assets/icons/report.png">
+                              </span>
+                              <span class="text">Voucher</span>
+                          </div>
+
+                          <div class="stacked-list flex-wrapper" (click)="form(3)">
+                                <span class="icon">
+                                  <img src="../../assets/icons/report.png">
+                                </span>
+                                <span class="text">Withdrawals</span>
+                          </div>
+
+                          <div class="stacked-list flex-wrapper" (click)="form(4)">
+                                <span class="icon">
+                                  <img src="../../assets/icons/report.png">
+                                </span>
+                                <span class="text">Deposits</span>
+                          </div>
+                            
+                      </div>
+                    </div>
+                 </div>
+            </div>
+          </div>
+        </div>
+    </div>
+</ion-content>
+
+<app-footer></app-footer>

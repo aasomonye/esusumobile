@@ -1,0 +1,139 @@
+<ion-header id="header" no-shadow no-border *ngIf="allloaded == true">
+    <section class="wrapper">
+        <div class="w2-18">
+            <section class="grid-wrapper grid-col-3">
+                <button ion-button class="arrow-left" (click)="goback()">
+                    <img src="../../assets/icons/arrow-left.png"/>
+                    <span>Back</span>
+                </button>
+
+                <div class="header-title flex-wrapper">
+                   <span>Report</span>
+                </div>
+
+                <div class="profile-icon profile-icon-right" [routerLink]="['/profile']">
+                    <img [src]="account.data.profileimage"/>
+                </div>
+            </section>
+        </div>
+    </section>
+</ion-header>
+
+<ion-content id="content-section" *ngIf="allloaded == true">
+    <div class="wrapper segment">
+       <div class="w2-18">
+          <ion-segment (ionChange)="segmentChanged($event)">
+              <ion-segment-button value="voucher" checked>
+                <ion-label>Voucher</ion-label>
+              </ion-segment-button>
+              <ion-segment-button value="wallet">
+                <ion-label>Wallet</ion-label>
+              </ion-segment-button>
+          </ion-segment>
+       </div>
+    </div>
+
+    <div class="voucher">
+      <div class="wrapper" *ngIf="voucherActive == true && vouchersLoaded == true">
+
+          <div class="w2-18 table-report" *ngFor="let v of vouchers">
+            <div class="table-list grid-wrapper grid-col-2" >
+
+              <span class="table-title">Beneficiary</span>
+              <span class="table-text">{{v.Beneficiary}}</span>
+
+              <span class="table-title">Amount</span>
+              <span class="table-text">₦{{v.Amount}}</span>
+    
+              <span class="table-title">Beneficiary Account</span>
+              <span class="table-text">{{v.BeneficiaryAccount}}</span>
+    
+              <span class="table-title">Initiator</span>
+              <span class="table-text">{{v.Initiator}}</span>
+
+              <span class="table-title">SerialNumber</span>
+              <span class="table-text">{{v.SerialNumber}}</span>
+
+              <span class="table-title">VoucherCode</span>
+              <span class="table-text">{{v.VoucherCode}}</span>
+
+              <span class="table-title">Status</span>
+              <span class="table-text">{{v.Status}}</span>
+
+              <span class="table-title">Date Created</span>
+              <span class="table-text">{{v.DateCreated.date}}</span>
+
+              <span class="table-title">Date Used</span>
+              <span class="table-text">{{v.DateUsed.date}}</span>
+
+              <span class="table-title last">BatchNumber</span>
+              <span class="table-text">{{v.BatchNumber}}</span>
+            </div>
+
+            <div class="toggle-list">Expand</div>
+          </div>
+
+          <div class="load-more-wrapper" *ngIf="showVoucherLoad == true">
+              <div class="load-more-btn" (click)="loadmore('voucher')">
+                <span>Load More</span>
+                <img src="../../assets/icons/down-arrow-blue.png"/>
+              </div>
+          </div>
+
+      </div>
+    </div>
+
+    <div class="wallet">
+      <div class="wrapper" *ngIf="voucherActive == false && walletLoaded == true">
+          <div class="w2-18 table-report" *ngFor="let w of wallets">
+            <div class="table-list grid-wrapper grid-col-2">
+              <span class="table-title">Amount</span>
+              <span class="table-text">₦{{w.Amount}}</span>
+    
+              <span class="table-title">Account Number</span>
+              <span class="table-text">{{w.AccountNumber}}</span>
+    
+              <span class="table-title">Account Holder</span>
+              <span class="table-text">{{w.AccountHolderName}}</span>
+    
+              <span class="table-title">Narration</span>
+              <span class="table-text">{{w.Narration}}</span>
+
+              <span class="table-title">Posting Date</span>
+              <span class="table-text">{{w.PostingDate.date}}</span>
+
+              <span class="table-title last">ReferenceNumber</span>
+              <span class="table-text">{{w.ReferenceNumber}}</span>
+            </div>
+
+            <div class="toggle-list">Expand</div>
+          </div>
+
+          <div class="load-more-wrapper" *ngIf="showWalletLoad == true">
+            <div class="load-more-btn" (click)="loadmore('wallet')">
+              <span>Load More</span>
+              <img src="../../assets/icons/down-arrow-blue.png"/>
+            </div>
+          </div>
+
+      </div>
+    </div>
+
+    <!-- size filter -->
+    <div class="size-filter-control btn-only">
+        <div class="size-filter-btn">
+            <span class="filter"></span>
+        </div>
+        
+        <div class="filter-box-wrapper">
+          <div class="filter-box">
+            <span>Filter page size</span>
+            <input type="number" min="1" [(ngModel)]="pagesize" placeholder="1-1000000"/>
+            <button (click)="filter()">Filter</button>
+          </div>
+        </div>
+    </div>
+
+</ion-content>
+
+<app-footer *ngIf="allloaded == true"></app-footer>
